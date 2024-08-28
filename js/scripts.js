@@ -179,12 +179,15 @@ substract.addEventListener("click", () => {
   MULTIPLY FUNCTION (*)
 */
 multiply.addEventListener("click", () => {
-  if (currNum !== null && finalResult !== null) {
-    currNum = Number(currNum);
-    finalResult = operate(finalResult, currNum, prevOperator);
-  }
+  if (!hasEqual) {
+    if (currNum !== null && finalResult !== null) {
+      currNum = Number(currNum);
+      finalResult = operate(finalResult, currNum, prevOperator);
+    }
 
-  if (finalResult === null) finalResult = Number(currNum);
+    if (finalResult === null) finalResult = Number(currNum);
+    hasEqual = false;
+  }
 
   currNum = null;
   prevOperator = "*";
@@ -196,12 +199,15 @@ multiply.addEventListener("click", () => {
   DIVIDED FUNCTION (/)
 */
 divided.addEventListener("click", () => {
-  if (currNum !== null && finalResult !== null) {
-    currNum = Number(currNum);
-    finalResult = operate(finalResult, currNum, prevOperator);
-  }
+  if (!hasEqual) {
+    if (currNum !== null && finalResult !== null) {
+      currNum = Number(currNum);
+      finalResult = operate(finalResult, currNum, prevOperator);
+    }
 
-  if (finalResult === null) finalResult = Number(currNum);
+    if (finalResult === null) finalResult = Number(currNum);
+    hasEqual = false;
+  }
 
   currNum = null;
   prevOperator = "/";
