@@ -13,6 +13,7 @@ const add = document.querySelector("#btn-add");
 const substract = document.querySelector("#btn-substract");
 const multiply = document.querySelector("#btn-multiply");
 const divided = document.querySelector("#btn-divided");
+const deleteBtn = document.querySelector("#btn-delete");
 
 let currNum = null;
 let finalResult = null;
@@ -190,4 +191,17 @@ divided.addEventListener("click", () => {
   currNum = null;
   prevOperator = "/";
   result.textContent = finalResult;
+});
+
+/*
+  DEL FUNCTION
+*/
+deleteBtn.addEventListener("click", () => {
+  if (currNum !== null && currNum !== "") {
+    if (currNum.length === 1) currNum = "0";
+    else {
+      currNum = currNum.slice(0, -1);
+    }
+    result.textContent = currNum;
+  }
 });
