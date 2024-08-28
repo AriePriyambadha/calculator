@@ -14,6 +14,8 @@ const substract = document.querySelector("#btn-substract");
 const multiply = document.querySelector("#btn-multiply");
 const divided = document.querySelector("#btn-divided");
 const deleteBtn = document.querySelector("#btn-delete");
+const ceBtn = document.querySelector("#btn-ce");
+const cBtn = document.querySelector("#btn-c");
 
 let currNum = null;
 let finalResult = null;
@@ -202,6 +204,17 @@ deleteBtn.addEventListener("click", () => {
     else {
       currNum = currNum.slice(0, -1);
     }
+    result.textContent = currNum;
+  }
+});
+
+/*
+  CE FUNCTION
+*/
+ceBtn.addEventListener("click", () => {
+  if (currNum !== null && currNum !== "") {
+    currNum = "0";
+
     result.textContent = currNum;
   }
 });
