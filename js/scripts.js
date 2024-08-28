@@ -10,6 +10,9 @@ const num8 = document.querySelector("#btn-num8");
 const num9 = document.querySelector("#btn-num9");
 const num0 = document.querySelector("#btn-num0");
 const add = document.querySelector("#btn-add");
+const substract = document.querySelector("#btn-substract");
+const multiply = document.querySelector("#btn-multiply");
+const divided = document.querySelector("#btn-divided");
 
 let currNum = null;
 let finalResult = null;
@@ -125,18 +128,66 @@ num0.addEventListener("click", () => {
   }
 });
 
+/*
+  ADD FUNCTION (+)
+*/
 add.addEventListener("click", () => {
-  console.log(finalResult, currNum, prevOperator);
   if (currNum !== null && finalResult !== null) {
     currNum = Number(currNum);
     finalResult = operate(finalResult, currNum, prevOperator);
-    // console.log(finalResult);
   }
 
   if (finalResult === null) finalResult = Number(currNum);
-  console.log(finalResult, currNum, prevOperator);
 
   currNum = null;
   prevOperator = "+";
+  result.textContent = finalResult;
+});
+
+/*
+  SUBSTRACT FUNCTION (-)
+*/
+substract.addEventListener("click", () => {
+  if (currNum !== null && finalResult !== null) {
+    currNum = Number(currNum);
+    finalResult = operate(finalResult, currNum, prevOperator);
+  }
+
+  if (finalResult === null) finalResult = Number(currNum);
+
+  currNum = null;
+  prevOperator = "-";
+  result.textContent = finalResult;
+});
+
+/*
+  MULTIPLY FUNCTION (*)
+*/
+multiply.addEventListener("click", () => {
+  if (currNum !== null && finalResult !== null) {
+    currNum = Number(currNum);
+    finalResult = operate(finalResult, currNum, prevOperator);
+  }
+
+  if (finalResult === null) finalResult = Number(currNum);
+
+  currNum = null;
+  prevOperator = "*";
+  result.textContent = finalResult;
+});
+
+/*
+  DIVIDED FUNCTION (/)
+*/
+divided.addEventListener("click", () => {
+  if (currNum !== null && finalResult !== null) {
+    currNum = Number(currNum);
+    finalResult = operate(finalResult, currNum, prevOperator);
+  }
+
+  if (finalResult === null) finalResult = Number(currNum);
+
+  currNum = null;
+  prevOperator = "/";
   result.textContent = finalResult;
 });
