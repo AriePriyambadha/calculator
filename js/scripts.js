@@ -218,3 +218,15 @@ ceBtn.addEventListener("click", () => {
     result.textContent = currNum;
   }
 });
+
+/*
+  C FUNCTION
+*/
+cBtn.addEventListener("click", () => {
+  // Global reset to default !!
+  currNum = null;
+  finalResult = null;
+  prevOperator = null;
+
+  result.textContent = "0";
+});
