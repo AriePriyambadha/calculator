@@ -8,28 +8,40 @@
     <script src="./js/scripts.js" defer></script>
   </head>
   <body>
-    <div id="result">0</div>
-    <div>
-      <input type="button" value="1" id="btn-num1" />
-      <input type="button" value="2" id="btn-num2" />
-      <input type="button" value="3" id="btn-num3" />
-      <input type="button" value="4" id="btn-num4" />
-      <input type="button" value="5" id="btn-num5" />
-      <input type="button" value="6" id="btn-num6" />
-      <input type="button" value="7" id="btn-num7" />
-      <input type="button" value="8" id="btn-num8" />
-      <input type="button" value="9" id="btn-num9" />
-      <input type="button" value="0" id="btn-num0" />
-    </div>
-    <div>
-      <input type="button" value="+" id="btn-add" />
-      <input type="button" value="-" id="btn-substract" />
-      <input type="button" value="*" id="btn-multiply" />
-      <input type="button" value="/" id="btn-divided" />
-      <input type="button" value="=" id="btn-equal" />
-      <input type="button" value="CE" id="btn-ce" />
-      <input type="button" value="C" id="btn-c" />
-      <input type="button" value="DEL" id="btn-delete" />
+    <div class="container">
+      <div class="display-result">
+        <div id="prev-result"></div>
+        <div id="result">0</div>
+      </div>
+      <div>
+        <input type="button" value="CE" id="btn-ce" />
+        <input type="button" value="C" id="btn-c" />
+        <input type="button" value="DEL" id="btn-delete" />
+        <input type="button" value="/" id="btn-divided" />
+      </div>
+      <div>
+        <input type="button" value="7" id="btn-num7" />
+        <input type="button" value="8" id="btn-num8" />
+        <input type="button" value="9" id="btn-num9" />
+        <input type="button" value="*" id="btn-multiply" />
+      </div>
+      <div>
+        <input type="button" value="4" id="btn-num4" />
+        <input type="button" value="5" id="btn-num5" />
+        <input type="button" value="6" id="btn-num6" />
+        <input type="button" value="-" id="btn-substract" />
+      </div>
+      <div>
+        <input type="button" value="1" id="btn-num1" />
+        <input type="button" value="2" id="btn-num2" />
+        <input type="button" value="3" id="btn-num3" />
+
+        <input type="button" value="+" id="btn-add" />
+      </div>
+      <div>
+        <input type="button" value="0" id="btn-num0" class="medium-btn" />
+        <input type="button" value="=" id="btn-equal" />
+      </div>
     </div>
   </body>
 </html>

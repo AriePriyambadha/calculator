@@ -16,10 +16,14 @@ const divided = document.querySelector("#btn-divided");
 const deleteBtn = document.querySelector("#btn-delete");
 const ceBtn = document.querySelector("#btn-ce");
 const cBtn = document.querySelector("#btn-c");
+const equal = document.querySelector("#btn-equal");
+const prevDisplay = document.querySelector("#prev-result");
 
 let currNum = null;
 let finalResult = null;
 let prevOperator = null;
+let hasEqual = false;
+let tmpNum = null;
 
 function operate(result, operand, operator) {
   if (operator === "+") return result + operand;
@@ -135,32 +139,40 @@ num0.addEventListener("click", () => {
   ADD FUNCTION (+)
 */
 add.addEventListener("click", () => {
-  if (currNum !== null && finalResult !== null) {
-    currNum = Number(currNum);
-    finalResult = operate(finalResult, currNum, prevOperator);
-  }
+  if (!hasEqual) {
+    if (currNum !== null && finalResult !== null) {
+      currNum = Number(currNum);
+      finalResult = operate(finalResult, currNum, prevOperator);
+    }
 
-  if (finalResult === null) finalResult = Number(currNum);
+    if (finalResult === null) finalResult = Number(currNum);
+    hasEqual = false;
+  }
 
   currNum = null;
   prevOperator = "+";
   result.textContent = finalResult;
+  prevDisplay.textContent = `${finalResult} ${prevOperator}`;
 });
 
 /*
   SUBSTRACT FUNCTION (-)
 */
 substract.addEventListener("click", () => {
-  if (currNum !== null && finalResult !== null) {
-    currNum = Number(currNum);
-    finalResult = operate(finalResult, currNum, prevOperator);
-  }
+  if (!hasEqual) {
+    if (currNum !== null && finalResult !== null) {
+      currNum = Number(currNum);
+      finalResult = operate(finalResult, currNum, prevOperator);
+    }
 
-  if (finalResult === null) finalResult = Number(currNum);
+    if (finalResult === null) finalResult = Number(currNum);
+    hasEqual = false;
+  }
 
   currNum = null;
   prevOperator = "-";
   result.textContent = finalResult;
+  prevDisplay.textContent = `${finalResult} ${prevOperator}`;
 });
 
 /*
@@ -177,6 +189,7 @@ multiply.addEventListener("click", () => {
   currNum = null;
   prevOperator = "*";
   result.textContent = finalResult;
+  prevDisplay.textContent = `${finalResult} ${prevOperator}`;
 });
 
 /*
@@ -193,6 +206,7 @@ divided.addEventListener("click", () => {
   currNum = null;
   prevOperator = "/";
   result.textContent = finalResult;
+  prevDisplay.textContent = `${finalResult} ${prevOperator}`;
 });
 
 /*
@@ -229,4 +243,27 @@ cBtn.addEventListener("click", () => {
   prevOperator = null;
 
   result.textContent = "0";
+  prevDisplay.textContent = ``;
+});
+
+/*
+  EQUAL FUNCTION
+*/
+equal.addEventListener("click", () => {
+  hasEqual = true;
+  if (prevOperator === null) {
+    // Do nothing !
+  } else if (currNum === null) {
+    currNum = Number(finalResult);
+    tmpNum = finalResult;
+    finalResult = operate(finalResult, currNum, prevOperator);
+    result.textContent = finalResult;
+    prevDisplay.textContent = `${tmpNum} ${prevOperator} ${currNum} =`;
+  } else {
+    currNum = Number(currNum);
+    tmpNum = finalResult;
+    finalResult = operate(finalResult, currNum, prevOperator);
+    result.textContent = finalResult;
+    prevDisplay.textContent = `${tmpNum} ${prevOperator} ${currNum} =`;
+  }
 });

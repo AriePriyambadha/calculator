@@ -15,3 +15,22 @@ input {
   height: 50px;
   margin-top: 10px;
 }
+
+.container {
+  display: flex;
+  flex-direction: column;
+}
+
+.display-result {
+  display: flex;
+  flex-direction: column;
+  margin-top: 50px;
+}
+
+.container > div {
+  display: flex;
+}
+
+.medium-button {
+  flex: 1;
+}
