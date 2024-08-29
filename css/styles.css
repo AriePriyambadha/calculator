@@ -13,24 +13,68 @@ input {
   padding: 10px;
   width: 50px;
   height: 50px;
-  margin-top: 10px;
 }
 
 .container {
   display: flex;
   flex-direction: column;
+  padding: 10px;
+  border: 1px solid black;
+  align-items: center;
+  width: 500px;
+  border-radius: 12px;
+  background-color: beige;
 }
 
 .display-result {
   display: flex;
   flex-direction: column;
-  margin-top: 50px;
+  border: 1px solid black;
+  border-radius: 12px;
+  flex-basis: 100px;
+  text-align: right;
+  padding: 10px;
+  margin-bottom: 7px;
+  width: 100%;
+}
+
+#prev-result {
+  font-size: 14px;
+}
+
+.result {
+  font-weight: 700;
 }
 
 .container > div {
   display: flex;
+  gap: 3px;
+  margin-top: 3px;
+  width: 100%;
 }
 
 .medium-button {
+  flex: 1;
+}
+
+.box {
+  border-radius: 12px;
+  font-weight: 700;
+  width: 25%;
+}
+
+.number {
+  background-color: aquamarine;
+}
+
+.operator {
+  background-color: yellowgreen;
+}
+
+.equal {
+  background-color: cornflowerblue;
+}
+
+#btn-num0 {
   flex: 1;
 }

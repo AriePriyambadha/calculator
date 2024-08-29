@@ -247,7 +247,8 @@ cBtn.addEventListener("click", () => {
   currNum = null;
   finalResult = null;
   prevOperator = null;
-
+  hasEqual = false;
+  tmpNum = null;
   result.textContent = "0";
   prevDisplay.textContent = ``;
 });
