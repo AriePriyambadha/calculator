@@ -25,6 +25,9 @@ let prevOperator = null;
 let hasEqual = false;
 let tmpNum = null;
 
+/*
+  Function for calculated the operands
+*/
 function operate(result, operand, operator) {
   if (operator === "+") return result + operand;
   else if (operator === "-") return result - operand;
@@ -33,187 +36,57 @@ function operate(result, operand, operator) {
 }
 
 /*
+  Function for simplified the hard code solution in every number
+*/
+function addNumber(event) {
+  const number = event.target.value;
+  if (result.textContent === "0" || currNum === null) {
+    result.textContent = number;
+    currNum = number;
+  } else {
+    result.textContent += number;
+    currNum += number;
+  }
+}
+
+function calcInOperator(event) {
+  if (!hasEqual) {
+    if (currNum !== null && finalResult !== null) {
+      currNum = Number(currNum);
+      finalResult = operate(finalResult, currNum, prevOperator);
+    }
+
+    if (finalResult === null) finalResult = Number(currNum);
+    hasEqual = false;
+  }
+
+  currNum = null;
+  prevOperator = event.target.value;
+  result.textContent = finalResult;
+  prevDisplay.textContent = `${finalResult} ${prevOperator}`;
+}
+
+/*
   EVENT HANDLING WHEN BUTTON CLICK !!
 */
-num1.addEventListener("click", () => {
-  if (result.textContent === "0" || currNum === null) {
-    result.textContent = "1";
-    currNum = "1";
-  } else {
-    result.textContent += "1";
-    currNum += "1";
-  }
-});
-
-num2.addEventListener("click", () => {
-  if (result.textContent === "0" || currNum === null) {
-    result.textContent = "2";
-    currNum = "2";
-  } else {
-    result.textContent += "2";
-    currNum += "2";
-  }
-});
-
-num3.addEventListener("click", () => {
-  if (result.textContent === "0" || currNum === null) {
-    result.textContent = "3";
-    currNum = "3";
-  } else {
-    result.textContent += "3";
-    currNum += "3";
-  }
-});
-
-num4.addEventListener("click", () => {
-  if (result.textContent === "0" || currNum === null) {
-    result.textContent = "4";
-    currNum = "4";
-  } else {
-    result.textContent += "4";
-    currNum += "4";
-  }
-});
-
-num5.addEventListener("click", () => {
-  if (result.textContent === "0" || currNum === null) {
-    result.textContent = "5";
-    currNum = "5";
-  } else {
-    result.textContent += "5";
-    currNum += "5";
-  }
-});
-
-num6.addEventListener("click", () => {
-  if (result.textContent === "0" || currNum === null) {
-    result.textContent = "6";
-    currNum = "6";
-  } else {
-    result.textContent += "6";
-    currNum += "6";
-  }
-});
-
-num7.addEventListener("click", () => {
-  if (result.textContent === "0" || currNum === null) {
-    result.textContent = "7";
-    currNum = "7";
-  } else {
-    result.textContent += "7";
-    currNum += "7";
-  }
-});
-
-num8.addEventListener("click", () => {
-  if (result.textContent === "0" || currNum === null) {
-    result.textContent = "8";
-    currNum = "8";
-  } else {
-    result.textContent += "8";
-    currNum += "8";
-  }
-});
-
-num9.addEventListener("click", () => {
-  if (result.textContent === "0" || currNum === null) {
-    result.textContent = "9";
-    currNum = "9";
-  } else {
-    result.textContent += "9";
-    currNum += "9";
-  }
-});
-
-num0.addEventListener("click", () => {
-  if (result.textContent === "0" || currNum === null) {
-    result.textContent = "0";
-    currNum = "0";
-  } else {
-    result.textContent += "0";
-    currNum += "0";
-  }
-});
+num1.addEventListener("click", (event) => addNumber(event));
+num2.addEventListener("click", (event) => addNumber(event));
+num3.addEventListener("click", (event) => addNumber(event));
+num4.addEventListener("click", (event) => addNumber(event));
+num5.addEventListener("click", (event) => addNumber(event));
+num6.addEventListener("click", (event) => addNumber(event));
+num7.addEventListener("click", (event) => addNumber(event));
+num8.addEventListener("click", (event) => addNumber(event));
+num9.addEventListener("click", (event) => addNumber(event));
+num0.addEventListener("click", (event) => addNumber(event));
 
 /*
-  ADD FUNCTION (+)
+  EVENT HANDLING WHEN TWO OPERAND AND ONE OPERATOR MEET WITH OTHER OPERATOR WITH CLICK !!
 */
-add.addEventListener("click", () => {
-  if (!hasEqual) {
-    if (currNum !== null && finalResult !== null) {
-      currNum = Number(currNum);
-      finalResult = operate(finalResult, currNum, prevOperator);
-    }
-
-    if (finalResult === null) finalResult = Number(currNum);
-    hasEqual = false;
-  }
-
-  currNum = null;
-  prevOperator = "+";
-  result.textContent = finalResult;
-  prevDisplay.textContent = `${finalResult} ${prevOperator}`;
-});
-
-/*
-  SUBSTRACT FUNCTION (-)
-*/
-substract.addEventListener("click", () => {
-  if (!hasEqual) {
-    if (currNum !== null && finalResult !== null) {
-      currNum = Number(currNum);
-      finalResult = operate(finalResult, currNum, prevOperator);
-    }
-
-    if (finalResult === null) finalResult = Number(currNum);
-    hasEqual = false;
-  }
-
-  currNum = null;
-  prevOperator = "-";
-  result.textContent = finalResult;
-  prevDisplay.textContent = `${finalResult} ${prevOperator}`;
-});
-
-/*
-  MULTIPLY FUNCTION (*)
-*/
-multiply.addEventListener("click", () => {
-  if (!hasEqual) {
-    if (currNum !== null && finalResult !== null) {
-      currNum = Number(currNum);
-      finalResult = operate(finalResult, currNum, prevOperator);
-    }
-
-    if (finalResult === null) finalResult = Number(currNum);
-    hasEqual = false;
-  }
-
-  currNum = null;
-  prevOperator = "*";
-  result.textContent = finalResult;
-  prevDisplay.textContent = `${finalResult} ${prevOperator}`;
-});
-
-/*
-  DIVIDED FUNCTION (/)
-*/
-divided.addEventListener("click", () => {
-  if (!hasEqual) {
-    if (currNum !== null && finalResult !== null) {
-      currNum = Number(currNum);
-      finalResult = operate(finalResult, currNum, prevOperator);
-    }
-
-    if (finalResult === null) finalResult = Number(currNum);
-    hasEqual = false;
-  }
-
-  currNum = null;
-  prevOperator = "/";
-  result.textContent = finalResult;
-  prevDisplay.textContent = `${finalResult} ${prevOperator}`;
-});
+add.addEventListener("click", (event) => calcInOperator(event)); // ADD FUNCTION (+)
+substract.addEventListener("click", (event) => calcInOperator(event)); // SUBSTRACT FUNCTION (-)
+multiply.addEventListener("click", (event) => calcInOperator(event)); // MULTIPLY FUNCTION (*)
+divided.addEventListener("click", (event) => calcInOperator(event)); // DIVIDED FUNCTION (/)
 
 /*
   DEL FUNCTION
