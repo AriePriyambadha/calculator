@@ -1,3 +1,4 @@
+// Long time no see brader :D
 const result = document.querySelector("#result");
 const num1 = document.querySelector("#btn-num1");
 const num2 = document.querySelector("#btn-num2");
